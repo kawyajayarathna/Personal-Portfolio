@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharadee-Portfolio/Project2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    :root {
+      --cream-green: #d6ded8;
+      --dark-green: #2f3330;
+      --medium: #3b755d;
+      --blue: #5992cf;
+      --red: #e3663e;
+      --yellow: #fcdf4d;
+      --orange: #fb993e;
+      --background: #fff0;
+      --light-grey: #ecf0f2;
+      --purple: #d3c7f3;
+      --stroke: #2f33304d;
+      --neon: #cfec16;
+      --pink: #e3adc6;
+      --light-green: #b6e7c9;
+
+      --second-bg-color: #ffffff;
+      --text-color: #2f3330;
+      --main-color: var(--dark-green);
+      --highlight-color: var(--pink);
+      --muted-text: #5c5c5c;
+      --nav-width: 120px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 40px;
+      background-color: #fffaf5;
+      background-image:
+        radial-gradient(circle at 20% 30%, #fceff9 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, #d6ecff 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #e3fad5 0%, transparent 70%);
+      background-size: 200% 200%;
+      animation: softFloat 25s ease infinite;
+      scroll-behavior: smooth;
+      color: var(--text-color);
+    cursor: none;
+    }
+
+    @keyframes softFloat {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .project-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+     html, body{
+      overflow-x : hidden;}
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 40px;
+      background-color: #fffaf5;
+      background-image:
+        radial-gradient(circle at 20% 30%, #fceff9 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, #d6ecff 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #e3fad5 0%, transparent 70%);
+      background-size: 200% 200%;
+      animation: softFloat 25s ease infinite;
+      scroll-behavior: smooth;
+      color: var(--text-color);
+      padding-bottom: 80px;
+      
+    }
+
+    @keyframes softFloat {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+  
+.navbar-wrapper {
+  position: relative;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+.line {
+  position: absolute;
+  bottom: -8px;
+  left: 30px;
+  right: 70px;
+  height: 2px;
+  background-color: black;
+  width: 1%;
+  z-index: 0;
+  animation: expandLine 2s ease-out forwards;
+}
+@keyframes expandLine {
+  to {
+    width: 97%;
+  }
+}
+ /* Updated Animation Keyframes */
+    @keyframes slideInFade {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      60% {
+        opacity: 0.5;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+.logo {
+  font-weight: 500;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.nav-links a:nth-child(1) {
+  animation-delay: 0.8s; /* Project link appears after a bit */
+}
+
+.nav-links a:nth-child(2) {
+  animation-delay: 1s; /* Fun link */
+}
+
+.nav-links a:nth-child(3) {
+  animation-delay: 1.2s; /* Resume link */
+}
+
+.nav-links a:nth-child(4) {
+  animation-delay: 1.4s; /* Writing link */
+}
+
+.nav-links a:nth-child(5) {
+  animation-delay: 1.6s; /* About link */
+}
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-size: 16px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: black;
+  bottom: -4px;
+  left: 0;
+  transform: scaleX(0);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+
+}
+
+
+/* Fixed Page Width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 300px 0 20px; /* Add space from top */
+}
+.topic-paragraph-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 1200px;
+  border-bottom: 2px solid #2f3330;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+}
+
+.topic-left {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.paragraph-right {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+  max-width: 50%;
+  text-align: right;
+}
+
+.main-content section{
+  margin-bottom: 72px;
+}
+
+/* Profile Card */
+.profile-card {
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.user-info {
+  text-align: center;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.user-info h2 {
+  font-size: 24px;
+  margin: 10px 0 0;
+  font-weight: 600;
+}
+
+.custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+      mix-blend-mode: difference;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    }
+    /* Fade-in transitions */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section image styling */
+.section-image {
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+}
+
+.section-image:hover {
+  transform: scale(1.02);
+}
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 40px;
+  margin: 24px 0 0 0;
+}
+.tech-item {
+  background: #f5f7fa;
+  border-radius: 18px;
+  box-shadow: 6px 6px 16px #e3e6ea, -6px -6px 16px #ffffff;
+  padding: 18px 32px;
+  font-size: 1.08rem;
+  color: #2f3330;
+  font-weight: 600;
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s;
+  border: none;
+  outline: none;
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .tech-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 16px;
+  }
+  .tech-item {
+    flex: 1 1 45%;
+    min-width: 140px;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+.tech-item:hover {
+  box-shadow: 2px 2px 8px #e3e6ea, -2px -2px 8px #ffffff;
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;           /* Decreased space between images */
+  margin-bottom: 24px;
+}
+.gallery-img {
+  object-fit: contain;
+  width: 420px;        /* More big */
+  height: 260px;       /* More big */
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transition: transform 0.3s;
+  margin-bottom: 0;
+  padding: 0;
+  border: none;
+}
+.gallery-img:hover {
+  transform: scale(1.04);
+  box-shadow: none;
+}
+@media (max-width: 1800px) {
+  .gallery-img {
+    width: 32vw;
+    height: 20vw;
+    max-width: 98vw;
+    max-height: 60vw;
+  }
+}
+@media (max-width: 800px) {
+  .image-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .gallery-img {
+    width: 95vw;
+    height: auto;
+    max-width: 500px;
+  }
+}
+
+ul li {
+  margin-bottom: 16px;
+}
+@media (max-width: 900px) {
+  .features-flex {
+    flex-direction: column !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+  }
+  .features-flex img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto 12px auto !important;
+    display: block;
+  }
+  .features-flex ul {
+    width: 100% !important;
+    padding-left: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .topic-paragraph-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .topic-left {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .paragraph-right {
+    font-size: 16px;
+    max-width: 100%;
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 100px 0 20px;
+    padding: 0 16px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .image-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .gallery-img {
+    width: 90vw;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 20px;
+    margin: 24px 12px;
+  }
+
+  .user-info h2 {
+    font-size: 20px;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+   .nav-links a::after {
+    height: 1px; /* smaller height */
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    transform: scaleX(0.2); /* smaller width on small screens */
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+   <header class="navbar-wrapper">
+    <div class="navbar">
+      <div class="logo">Sharadee Jayarathna</div>
+      <nav class="nav-links">
+        <a href="index.html#projects" class="active">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="Sharadee Jayarathna.pdf">Resume</a>
+        <a href="AboutPage.html">About</a>
+        <a href="contact_page.html">Contact</a>
+      </nav>
+    </div>
+    <div class="line"></div>
+  </header>
+  <div class="container">
+    
+    <div class="section-header">
+      <div class="topic-paragraph-wrapper">
+      <h2 class="topic-left">Refined Residences</h2>
+      <p class="paragraph-right">Estate Agent Client-side Web Application</p>
+    </div>
+    </div>
+    <div class="header-line below-topic"></div>
+    
+    <main class="main-content">
+      <section id="overview" class="fade-in">
+        <h2>Project Overview</h2>
+        <p> Refined Residences is a modern, client-side estate agent web application designed to simplify property discovery and management. Built with React, it allows users to search, filter, and save favourite properties using an interactive and visually engaging interface. The app emphasizes user experience with responsive layouts, dynamic filtering, and intuitive features inspired by leading property platforms.</p>
+      </section>
+
+      <section id="uiux" class="fade-in">
+  <h2>UI/UX Design</h2>
+  <p>
+    I designed the complete user interface and user experience for Refined Residences, focusing on intuitive navigation, modern aesthetics, and responsive layouts. The design process included wireframing, prototyping, and user testing to ensure a seamless and engaging experience across devices.
+  </p>
+  <div class="image-row">
+    <img src="Images/MacBook Air - 1 (1).png" alt="UI/UX Wireframe" class="gallery-img">
+    <img src="Images/Proto.png" alt="UI/UX Prototype" class="gallery-img">
+    <img src="Images/MacBook Air - 1 (1).png" alt="UI/UX Final Design" class="gallery-img">
+  </div>
+</section>
+  
+      <section id="features" class="fade-in">
+        <h2>Key Features</h2>
+        <div class="features-flex" style="display: flex; align-items: flex-start; gap: 32px;">
+           <img src="Images/s1 (4).png" alt="Screenshot" class="gallery-img fade-in" style="max-width: 600px; height: 400px; margin-bottom:0;">
+        <ul style="flex: 1 1 60%;">
+          <li>Search by type, price range, bedrooms, date, and postcode area</li>
+          <li>Filter properties with dynamic React form components</li>
+          <li>JSON-based data (7 properties)</li>
+          <li>Responsive design using CSS Flexbox & Media Queries</li>
+          <li>Property pages with image sliders, long descriptions, floorplans, and maps</li>
+          <li>Drag & drop and button-based favouriting using local storage</li>
+        </ul>
+    
+        </div>
+ <section id="video demo" class="fade-in" style="margin-top: 64px;">
+        <div class="video-container">
+  <video controls poster="Images/residences.png" style="width:100%; border-radius:12px;">
+    <source src="Images/ref.mkv" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+</section>
+  
+      <section id="technologies" class="fade-in">
+        <h2>Technologies Used</h2>
+        <div class="tech-list" style="margin-top: 80px">
+  <div class="tech-item">React JS</div>
+  <div class="tech-item">JavaScript (ES6+)</div>
+  <div class="tech-item">HTML5 &amp; CSS3</div>
+  <div class="tech-item">Custom Media Queries</div>
+  <div class="tech-item">LocalStorage API</div>
+  <div class="tech-item">Figma</div>
+</div>
+      </section>
+  
+      <section id="reflection" class="fade-in">
+        <h2>Reflection</h2>
+        <p>This project helped strengthen my skills in component-based UI design, React state management, and client-side data handling. Implementing drag-and-drop functionality and responsiveness without server-side features was both a challenge and a learning experience.</p>
+      </section>
+
+  <section id="github" class="fade-in">
+  <h2>Live Demo & Source Code</h2>
+  <p>
+    Try the live app here:<br>
+    <a href="https://refined-residences.vercel.app/" target="_blank" style="color:#5992cf; font-weight:600; text-decoration:underline;">
+      https://refined-residences.vercel.app/
+    </a>
+    <br>
+  </p>
+</section>
+  </main>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <script>
+      const cursor = document.querySelector(".custom-cursor");
+    const cursorText = document.querySelector(".cursor-text");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+   
+// Reveal sections on scroll
+const sections = document.querySelectorAll('.fade-in');
+
+const revealOnScroll = () => {
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight - 100) {
+      section.classList.add('visible');
+    }
+  });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+
+  </script>
+</body>
+</html>
+

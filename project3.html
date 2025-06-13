@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharadee-Portfolio/Project3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    :root {
+      --cream-green: #d6ded8;
+      --dark-green: #2f3330;
+      --medium: #3b755d;
+      --blue: #5992cf;
+      --red: #e3663e;
+      --yellow: #fcdf4d;
+      --orange: #fb993e;
+      --background: #fff0;
+      --light-grey: #ecf0f2;
+      --purple: #d3c7f3;
+      --stroke: #2f33304d;
+      --neon: #cfec16;
+      --pink: #e3adc6;
+      --light-green: #b6e7c9;
+
+      --second-bg-color: #ffffff;
+      --text-color: #2f3330;
+      --main-color: var(--dark-green);
+      --highlight-color: var(--pink);
+      --muted-text: #5c5c5c;
+      --nav-width: 120px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 40px;
+      background-color: #fffaf5;
+      background-image:
+        radial-gradient(circle at 20% 30%, #fceff9 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, #d6ecff 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #e3fad5 0%, transparent 70%);
+      background-size: 200% 200%;
+      animation: softFloat 25s ease infinite;
+      scroll-behavior: smooth;
+      color: var(--text-color);
+    cursor: none;
+    }
+
+    @keyframes softFloat {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .project-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+      mix-blend-mode: difference;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    }
+     html, body{
+      overflow-x : hidden;}
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 40px;
+      background-color: #fffaf5;
+      background-image:
+        radial-gradient(circle at 20% 30%, #fceff9 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, #d6ecff 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #e3fad5 0%, transparent 70%);
+      background-size: 200% 200%;
+      animation: softFloat 25s ease infinite;
+      scroll-behavior: smooth;
+      color: var(--text-color);
+      padding-bottom: 80px;
+      
+    }
+
+    @keyframes softFloat {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+  
+.navbar-wrapper {
+  position: relative;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+.line {
+  position: absolute;
+  bottom: -8px;
+  left: 30px;
+  right: 70px;
+  height: 2px;
+  background-color: black;
+  width: 1%;
+  z-index: 0;
+  animation: expandLine 2s ease-out forwards;
+}
+@keyframes expandLine {
+  to {
+    width: 97%;
+  }
+}
+ /* Updated Animation Keyframes */
+    @keyframes slideInFade {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      60% {
+        opacity: 0.5;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+.logo {
+  font-weight: 500;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.nav-links a:nth-child(1) {
+  animation-delay: 0.8s; /* Project link appears after a bit */
+}
+
+.nav-links a:nth-child(2) {
+  animation-delay: 1s; /* Fun link */
+}
+
+.nav-links a:nth-child(3) {
+  animation-delay: 1.2s; /* Resume link */
+}
+
+.nav-links a:nth-child(4) {
+  animation-delay: 1.4s; /* Writing link */
+}
+
+.nav-links a:nth-child(5) {
+  animation-delay: 1.6s; /* About link */
+}
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-size: 16px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: black;
+  bottom: -4px;
+  left: 0;
+  transform: scaleX(0);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+
+}
+    /* Fade-in transitions */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Fixed Page Width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 300px 0 20px; /* Add space from top */
+}
+.topic-paragraph-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 1200px;
+  border-bottom: 2px solid #2f3330;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+}
+.topic-left {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.paragraph-right {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+  max-width: 50%;
+  text-align: right;
+}
+
+.main-content section{
+  margin-bottom: 72px;
+}
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 40px;
+  margin: 24px 0 0 0;
+}
+.tech-item {
+  background: #f5f7fa;
+  border-radius: 18px;
+  box-shadow: 6px 6px 16px #e3e6ea, -6px -6px 16px #ffffff;
+  padding: 18px 32px;
+  font-size: 1.08rem;
+  color: #2f3330;
+  font-weight: 600;
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s;
+  border: none;
+  outline: none;
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .tech-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 16px;
+  }
+  .tech-item {
+    flex: 1 1 45%;
+    min-width: 140px;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+  }
+   .nav-links a::after {
+    height: 1px; /* smaller height */
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    transform: scaleX(0.2); /* smaller width on small screens */
+  }
+}
+.tech-item:hover {
+  box-shadow: 2px 2px 8px #e3e6ea, -2px -2px 8px #ffffff;
+}
+
+ul li {
+  margin-bottom: 16px;
+}
+@media (max-width: 900px) {
+  .features-flex {
+    flex-direction: column !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+  }
+  .features-flex img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto 12px auto !important;
+    display: block;
+  }
+  .features-flex ul {
+    width: 100% !important;
+    padding-left: 24px;
+  }
+}
+@media (max-width: 768px) {
+  #objectives img {
+    width: 90% !important;
+  }
+}
+
+</style>
+<body>
+   <header class="navbar-wrapper">
+    <div class="navbar">
+      <div class="logo">Sharadee Jayarathna</div>
+      <nav class="nav-links">
+        <a href="index.html#projects" class="active">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="Sharadee Jayarathna.pdf">Resume</a>
+        <a href="AboutPage.html">About</a>
+        <a href="contact_page.html">Contact</a>
+      </nav>
+    </div>
+    <div class="line"></div>
+  </header>
+
+<div class="container">
+    
+    <div class="section-header">
+      <div class="topic-paragraph-wrapper">
+      <h2 class="topic-left">Fluent-Me</h2>
+      <p class="paragraph-right">Spoken English Learning App</p>
+    </div>
+    </div>
+    <div class="header-line below-topic"></div>
+    
+    <main class="main-content">
+      <section id="overview" class="fade-in">
+        <h2>Project Overview</h2>
+        <p>
+          Fluent-Me is a spoken English learning application designed to help users improve their English speaking skills through interactive lessons, quizzes, and real-time feedback. The app features a user-friendly interface, personalized learning paths, and a variety of engaging content to enhance the learning experience.
+       FluentMe - A mobile app that allows non-native English speakers to improve their spoken fluency, confidence, and pronunciation by engaging in daily challenge conversations, 
+simulation conversations, and positive feedback. </p>
+      </section>
+
+      <section id="objectives" class="fade-in">
+    <h2>Research</h2>
+    <img 
+  src="Images/Frame 5.png" 
+  alt="Research Image" 
+  style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+
+    <img src="Images/Frame 6.png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 110 (1).png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 8.png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 9.png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 10.png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 103.png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 104.png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 105.png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 108.png" alt="Design system" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 109.png" alt="Wireframe" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/Frame 107 (2).png" alt="Research Image" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    <img src="Images/prototypef.png" alt="prototype" style="width: 60%; display: block; margin: 20px auto; border-radius: 12px;">
+    
+
+  </section>
+</main> <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <script>
+    // Tab switching interaction
+const tabs = document.querySelectorAll(".tab");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    // Add tab-specific logic here if needed
+  });
+});
+
+const cursor = document.querySelector(".custom-cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.top = e.clientY + "px";
+  cursor.style.left = e.clientX + "px";
+});
+
+// Reveal sections on scroll
+const sections = document.querySelectorAll('.fade-in');
+
+const revealOnScroll = () => {
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight - 100) {
+      section.classList.add('visible');
+    }
+  });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+
+  </script>
+</body>
+</html>
+
+
+

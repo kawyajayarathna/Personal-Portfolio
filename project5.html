@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharadee-Portfolio/Aquamarine-SDG14</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    :root {
+      --cream-green: #d6ded8;
+      --dark-green: #2f3330;
+      --medium: #3b755d;
+      --blue: #5992cf;
+      --red: #e3663e;
+      --yellow: #fcdf4d;
+      --orange: #fb993e;
+      --background: #fff0;
+      --light-grey: #ecf0f2;
+      --purple: #d3c7f3;
+      --stroke: #2f33304d;
+      --neon: #cfec16;
+      --pink: #e3adc6;
+      --light-green: #b6e7c9;
+
+      --second-bg-color: #ffffff;
+      --text-color: #2f3330;
+      --main-color: var(--dark-green);
+      --highlight-color: var(--pink);
+      --muted-text: #5c5c5c;
+      --nav-width: 120px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 40px;
+      background-color: #fffaf5;
+      background-image:
+        radial-gradient(circle at 20% 30%, #fceff9 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, #d6ecff 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #e3fad5 0%, transparent 70%);
+      background-size: 200% 200%;
+      animation: softFloat 25s ease infinite;
+      scroll-behavior: smooth;
+      color: var(--text-color);
+      cursor: none;
+      padding-bottom: 80px;
+    }
+
+    html, body{
+      overflow-x : hidden;
+    }
+
+    @keyframes softFloat {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .project-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+      mix-blend-mode: difference;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    }
+
+    /* Fade-in transitions */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fixed Page Width */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 300px 0 20px;
+    }
+
+    .topic-paragraph-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 1200px;
+      border-bottom: 2px solid #2f3330;
+      margin-bottom: 40px;
+      padding-bottom: 10px;
+    }
+
+    .topic-left {
+      font-size: 36px;
+      font-weight: 700;
+      color: #333;
+      margin: 0;
+    }
+
+    .paragraph-right {
+      font-size: 18px;
+      color: #555;
+      margin: 0;
+      max-width: 50%;
+      text-align: right;
+    }
+
+    .main-content section{
+      margin-bottom: 72px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px 40px;
+      margin: 24px 0 0 0;
+    }
+
+    .tech-item {
+      background: #f5f7fa;
+      border-radius: 18px;
+      box-shadow: 6px 6px 16px #e3e6ea, -6px -6px 16px #ffffff;
+      padding: 18px 32px;
+      font-size: 1.08rem;
+      color: #2f3330;
+      font-weight: 600;
+      margin-bottom: 8px;
+      transition: box-shadow 0.2s;
+      border: none;
+      outline: none;
+      user-select: none;
+    }
+
+    .tech-item:hover {
+      box-shadow: 2px 2px 8px #e3e6ea, -2px -2px 8px #ffffff;
+    }
+
+    ul li {
+      margin-bottom: 16px;
+    }
+
+    .navbar-wrapper {
+      position: relative;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    .line {
+      position: absolute;
+      bottom: -8px;
+      left: 30px;
+      right: 70px;
+      height: 2px;
+      background-color: black;
+      width: 1%;
+      z-index: 0;
+      animation: expandLine 2s ease-out forwards;
+    }
+
+    @keyframes expandLine {
+      to {
+        width: 97%;
+      }
+    }
+
+    .logo {
+      font-weight: 500;
+      font-size: 18px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      animation-delay: 0.6s;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      position: relative;
+      font-size: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    }
+
+    .nav-links a:nth-child(1) { animation-delay: 0.8s; }
+    .nav-links a:nth-child(2) { animation-delay: 1s; }
+    .nav-links a:nth-child(3) { animation-delay: 1.2s; }
+    .nav-links a:nth-child(4) { animation-delay: 1.4s; }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: black;
+      bottom: -4px;
+      left: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .live-demo-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #5992cf, #3b755d);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .live-demo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 117, 93, 0.3);
+    }
+
+    .image-container {
+      margin: 32px 0;
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .image-container img:hover {
+      transform: scale(1.02);
+    }
+
+    .impact-with-image {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .impact-content {
+      flex: 1;
+    }
+
+    .impact-image {
+  flex: 0 0 450px; /* or higher depending on how large you want it */
+  min-width: 350px;
+}
+
+
+    .impact-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .impact-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .contribution-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contribution-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .contribution-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contribution-card ul {
+      margin: 16px 0 0 0;
+      padding-left: 20px;
+    }
+
+    .contribution-card ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Responsive Fixes */
+    @media (max-width: 1200px) {
+      .topic-paragraph-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-bottom: 20px;
+      }
+
+      .paragraph-right {
+        text-align: left;
+        max-width: 100%;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      .impact-with-image {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .impact-image {
+        flex: none;
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .section-header {
+        margin: 200px 0 20px;
+      }
+
+      .topic-left {
+        font-size: 28px;
+      }
+
+      .paragraph-right {
+        font-size: 16px;
+      }
+
+      .tech-list {
+        gap: 20px;
+      }
+
+      .tech-item {
+        font-size: 1rem;
+        padding: 14px 20px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 12px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .features-flex {
+        flex-direction: column !important;
+        gap: 24px !important;
+        align-items: stretch !important;
+      }
+
+      .contributions-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .image-container {
+        margin-top: 24px;
+      }
+
+      .impact-image {
+        min-width: 200px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 16px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
+       .nav-links a::after {
+    height: 1px; /* smaller height */
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    transform: scaleX(0.2); /* smaller width on small screens */
+  }
+
+      .topic-left {
+        font-size: 22px;
+      }
+
+      .paragraph-right {
+        font-size: 14px;
+      }
+
+      .tech-list {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .tech-item {
+        flex: 1 1 45%;
+        min-width: 140px;
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+        padding: 12px 16px;
+      }
+
+      .container {
+        padding: 0 12px;
+      }
+
+      ul li {
+        font-size: 14px;
+      }
+
+      section h2 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .navbar {
+        padding: 16px;
+      }
+
+      .line {
+        left: 20px;
+        right: 20px;
+      }
+
+      .impact-with-image {
+        gap: 16px;
+      }
+
+      .impact-image {
+        min-width: 150px;
+      }
+    }
+    a.no-underline {
+  text-decoration: none;
+  color: var(--blue);
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="navbar-wrapper">
+    <div class="navbar">
+      <div class="logo">Sharadee Jayarathna</div>
+      <nav class="nav-links">
+        <a href="index.html#projects" class="active">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="Sharadee Jayarathna.pdf">Resume</a>
+        <a href="AboutPage.html">About</a>
+        <a href="contact_page.html">Contact</a>
+      </nav>
+    </div>
+    <div class="line"></div>
+  </header>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="topic-paragraph-wrapper">
+        <h2 class="topic-left">Aquamarine</h2>
+        <p class="paragraph-right">Ocean Conservation Awareness Platform</p>
+      </div>
+    </div>
+    
+    <main class="main-content">
+      <section id="overview" class="fade-in">
+        <h2>Project Overview</h2>
+        <p>This project is a web-based platform developed by Team Aquamarine at the University of Westminster as part of the module 4COSC011C.3 Web Design and Development. The website aims to raise awareness about Sustainable Development Goal 14: Life Below Water, by educating users about marine biodiversity, threats to ocean life, and how individuals can take action.</p>
+        
+        <a href="https://aquamarine-sdg14.netlify.app/" target="_blank" class="live-demo-btn">
+          🌊 View Live Demo
+        </a>
+      </section>
+
+      <section id="objectives" class="fade-in">
+        <h2>Objectives</h2>
+        <ul>
+          <li>Raise awareness about ocean conservation and marine biodiversity.</li>
+          <li>Educate users on UN SDG 14 targets and their global importance.</li>
+          <li>Create an engaging, accessible web experience for environmental education.</li>
+          <li>Promote sustainable practices for ocean and marine resource protection.</li>
+          <li>Build a responsive platform accessible across all devices.</li>
+        </ul>
+      </section>
+
+      <section id="project-image" class="fade-in">
+        <h2>Project Showcase</h2>
+        <div class="image-container">
+          <img src="Images/demolife.png" alt="Ocean conservation platform showcase" />
+        </div>
+        <p><em>Visual representation of our ocean conservation awareness platform</em></p>
+      </section>
+
+      <section id="technologies" class="fade-in">
+        <h2>Technologies Used</h2>
+        <div class="tech-list" style="margin-top: 80px">
+          <div class="tech-item">HTML5</div>
+          <div class="tech-item">CSS3</div>
+          <div class="tech-item">JavaScript</div>
+          <div class="tech-item">Responsive Design</div>
+          <div class="tech-item">DOM Manipulation</div>
+          <div class="tech-item">Local Storage</div>
+          <div class="tech-item">AJAX</div>
+          <div class="tech-item">Netlify</div>
+        </div>
+      </section>
+
+      <section id="contributions" class="fade-in">
+        <h2>My Contributions</h2>
+        <div class="contributions-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin: 40px 0;">
+          
+          <div class="contribution-card" style="background: #f8fbff; padding: 24px; border-radius: 12px; border-left: 4px solid #5992cf;">
+            <h3 style="color: #5992cf; margin-top: 0;">📸 Gallery System</h3>
+            <p>Developed an interactive image gallery showcasing marine life and ocean conservation efforts. Features include:</p>
+            <ul>
+              <li>Responsive grid layout with hover effects</li>
+              <li>Lightbox functionality for detailed viewing</li>
+              <li>Category filtering for different marine species</li>
+              <li>Optimized image loading and compression</li>
+              <a href="https://aquamarine-sdg14.netlify.app/gallery" target="_blank" class="no-underline">View Page</a>
+            </ul>
+          </div>
+
+          <div class="contribution-card" style="background: #f0f9f4; padding: 24px; border-radius: 12px; border-left: 4px solid #3b755d;">
+            <h3 style="color: #3b755d; margin-top: 0;">🗺️ Interactive Sitemap</h3>
+            <p>Created a comprehensive sitemap with visual navigation structure:</p>
+            <ul>
+              <li>Hierarchical site structure visualization</li>
+              <li>Interactive navigation with smooth transitions</li>
+              <li>Mobile-responsive design with collapsible sections</li>
+              <li>Quick access to all major site sections</li>
+              <a href="https://aquamarine-sdg14.netlify.app/sitemap" target="_blank" class="no-underline">View Page</a>
+            </ul>
+          </div>
+
+          <div class="contribution-card" style="background: #fff8f0; padding: 24px; border-radius: 12px; border-left: 4px solid #fb993e;">
+            <h3 style="color: #fb993e; margin-top: 0;">🌊 Take Actions Page</h3>
+            <p>Built an engaging action-oriented section to promote user participation:</p>
+            <ul>
+             <li>Designed the Take Action page using HTML and CSS</li>
+            <li>Included sections on marine conservation, importance of action, ways to contribute, and human impacts</li>
+            <a href="https://aquamarine-sdg14.netlify.app/page4.html" target="_blank" class="no-underline">View Page</a>
+
+
+            </ul>
+          </div>
+
+          <div class="contribution-card" style="background: #fdf4ff; padding: 24px; border-radius: 12px; border-left: 4px solid #d3c7f3;">
+            <h3 style="color: #8b5cf6; margin-top: 0;">✏️ Content Editor</h3>
+            <p>Implemented a user-friendly content management system:</p>
+            <ul>
+                <li>Displayed my name and role</li>
+                <li>Mentioned pages I created: Gallery, Sitemap, Take Action</li>
+                <li>Added brief descriptions of each page</li>
+                <li>Included direct links to my pages</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="features" class="fade-in">
+        <h2>Technical Features</h2>
+        <ul>
+          <li><strong>Responsive Gallery:</strong> Dynamic image grid with lightbox modal and category filtering.</li>
+          <li><strong>Interactive Sitemap:</strong> Visual site navigation with collapsible sections and smooth animations.</li>
+          <li><strong>Action Hub:</strong> User engagement tools with progress tracking and social sharing.</li>
+          <li><strong>Content Editor:</strong> WYSIWYG editor with real-time preview and media management.</li>
+          <li><strong>Mobile Optimization:</strong> Touch-friendly interface optimized for all screen sizes.</li>
+          <li><strong>Performance:</strong> Lazy loading, image optimization, and efficient JavaScript execution.</li>
+          <li><strong>Accessibility:</strong> ARIA labels, keyboard navigation, and screen reader compatibility.</li>
+        </ul>
+      </section>
+
+      <section id="impact" class="fade-in">
+        <h2>Environmental Impact</h2>
+        <div class="impact-with-image">
+          <div class="impact-content">
+            <p>This project contributes to global ocean conservation efforts by:</p>
+            <ul>
+              <li>Educating visitors about the critical state of marine ecosystems</li>
+              <li>Promoting sustainable practices for ocean protection</li>
+              <li>Supporting UN SDG 14 awareness and implementation</li>
+              <li>Inspiring individual and collective action for marine conservation</li>
+            </ul>
+          </div>
+          <div class="impact-image">
+            <img src="Images/Stop pollution 🥽.jpeg" alt="Marine conservation impact" />
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  
+  <script>
+    // Custom cursor functionality
+    const cursor = document.querySelector(".custom-cursor");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+
+    // Reveal sections on scroll
+    const sections = document.querySelectorAll('.fade-in');
+
+    const revealOnScroll = () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

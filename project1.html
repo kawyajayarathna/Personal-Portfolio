@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sharadee-Portfolio/project1</title>
+  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+      :root {
+      --cream-green: #d6ded8;
+      --dark-green: #2f3330;
+      --medium: #3b755d;
+      --blue: #5992cf;
+      --red: #e3663e;
+      --yellow: #fcdf4d;
+      --orange: #fb993e;
+      --background: #fff0;
+      --light-grey: #ecf0f2;
+      --purple: #d3c7f3;
+      --stroke: #2f33304d;
+      --neon: #cfec16;
+      --pink: #e3adc6;
+      --light-green: #b6e7c9;
+
+      --second-bg-color: #ffffff;
+      --text-color: #2f3330;
+      --main-color: var(--dark-green);
+      --highlight-color: var(--pink);
+      --muted-text: #5c5c5c;
+      --nav-width: 120px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 40px;
+      background-color: #fffaf5;
+      background-image:
+        radial-gradient(circle at 20% 30%, #fceff9 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, #d6ecff 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #e3fad5 0%, transparent 70%);
+      background-size: 200% 200%;
+      animation: softFloat 25s ease infinite;
+      scroll-behavior: smooth;
+      color: var(--text-color);
+    cursor: none;
+    }
+
+    @keyframes softFloat {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .project-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2f3330;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #3b755d;
+      border-bottom: 2px solid #2f3330;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+    p{
+        text-align: justify;
+    }
+
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .text-content {
+      flex: 1 1 50%;
+    }
+
+    .image-content {
+      flex: 1 1 40%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-content img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+      margin-top: 20px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .link-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .link-box {
+      background-color: #eaf7f0;
+      padding: 15px 20px;
+      border-left: 5px solid #3b755d;
+      border-radius: 8px;
+      flex: 1 1 300px;
+    }
+
+    .link-box a {
+      color: #2f3330;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+  
+    .contribution-box {
+      background-color: #f0f5f3;
+      padding: 20px;
+      border-left: 5px solid #3b755d;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+
+      .image-content {
+        order: -1;
+      }
+    }
+
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+      mix-blend-mode: difference;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    }
+    html, body{
+      overflow-x : hidden;}
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-top: 40px;
+      background-color: #fffaf5;
+      background-image:
+        radial-gradient(circle at 20% 30%, #fceff9 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, #d6ecff 0%, transparent 60%),
+        radial-gradient(circle at 50% 80%, #e3fad5 0%, transparent 70%);
+      background-size: 200% 200%;
+      animation: softFloat 25s ease infinite;
+      scroll-behavior: smooth;
+      color: var(--text-color);
+      padding-bottom: 80px;
+      
+    }
+
+    @keyframes softFloat {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+  
+.navbar-wrapper {
+  position: relative;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+.line {
+  position: absolute;
+  bottom: -8px;
+  left: 30px;
+  right: 70px;
+  height: 2px;
+  background-color: black;
+  width: 1%;
+  z-index: 0;
+  animation: expandLine 2s ease-out forwards;
+}
+@keyframes expandLine {
+  to {
+    width: 97%;
+  }
+}
+ /* Updated Animation Keyframes */
+    @keyframes slideInFade {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      60% {
+        opacity: 0.5;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+.logo {
+  font-weight: 500;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.nav-links a:nth-child(1) {
+  animation-delay: 0.8s; /* Project link appears after a bit */
+}
+
+.nav-links a:nth-child(2) {
+  animation-delay: 1s; /* Fun link */
+}
+
+.nav-links a:nth-child(3) {
+  animation-delay: 1.2s; /* Resume link */
+}
+
+.nav-links a:nth-child(4) {
+  animation-delay: 1.4s; /* Writing link */
+}
+
+.nav-links a:nth-child(5) {
+  animation-delay: 1.6s; /* About link */
+}
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-size: 16px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: black;
+  bottom: -4px;
+  left: 0;
+  transform: scaleX(0);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+
+}
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-container {
+    padding: 0 15px;
+  }
+
+  .text-content,
+  .image-content {
+    flex: 1 1 100%;
+  }
+
+  .image-content img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .link-box {
+    padding: 12px 15px;
+  }
+
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .custom-cursor {
+    display: none; /* Hide fancy cursor on small devices */
+  }
+}
+.project-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+  .nav-links a::after {
+    height: 1px; /* smaller height */
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    transform: scaleX(0.2); /* smaller width on small screens */
+  }
+}
+  </style>
+</head>
+<body>
+
+  <header class="navbar-wrapper">
+    <div class="navbar">
+      <div class="logo">Sharadee Jayarathna</div>
+      <nav class="nav-links">
+        <a href="index.html#projects" class="active">Projects </a>
+        <a href="index.html#skills">Skills</a>
+        <a href="Sharadee Jayarathna.pdf">Resume</a>
+        <a href="AboutPage.html">About</a>
+        <a href="contact_page.html">Contact</a>
+      </nav>
+    </div>
+    <div class="line"></div>
+  </header>
+
+<div class="project-container">
+  <h1>TankTrack - Smart Septic Tank Monitor</h1>
+
+  <!-- Project Context -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Project Context</h2>
+      <p>In many rural and suburban areas, septic tanks are commonly used for wastewater management. However, the lack of real-time monitoring systems often leads to overflows, causing environmental hazards and health risks. Recognizing this issue, our team developed TankTrack, an IoT-powered solution aimed at providing real-time monitoring to prevent septic tank overflows and enhance sanitation.</p>
+    </div>
+    <div class="image-content">
+      <img src="Images/Picture1.png" alt="Project Context">
+    </div>
+  </div>
+
+  <!-- Problem -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Problem</h2>
+      <p>Traditional septic tank systems lack mechanisms to alert users about rising waste levels. This absence of timely notifications often results in unexpected overflows, leading to environmental contamination and costly repairs. The challenge was to create an affordable, reliable, and user-friendly system that could monitor tank levels and provide timely alerts to users.</p>
+    </div>
+    <div class="image-content">
+      <img src="Images/Screenshot (675).png" alt="Problem Illustration">
+    </div>
+  </div>
+
+  <!-- Solution -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Solution</h2>
+      <p>TankTrack integrates ultrasonic sensors with an ESP8266 microcontroller to measure the waste levels within septic tanks. The data is transmitted to a Flutter-based mobile application via Firebase, providing users with real-time updates and alerts. The backend, developed using Spring Boot and MongoDB, stores historical data, enabling users to analyze usage patterns and predict maintenance schedules.</p>
+    </div>
+  </div>
+
+  <!-- Implementation -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Our Implementation</h2>
+      <p>Our team focused on creating a seamless integration between hardware and software components. The ultrasonic sensor accurately measures the distance between the sensor and the waste surface, determining the fill level. The ESP8266 microcontroller processes this data and sends it to the Firebase Realtime Database. The Flutter application retrieves this data, displaying it in an intuitive dashboard. Users receive alerts when the tank reaches critical levels. The backend system archives monthly reports, allowing users to track and analyze their septic tank usage over time.</p>
+    </div>
+  </div>
+
+   <div class="section">
+  <div class="image-content">
+    <img src="Images/Image.png" alt="Backend Development" />
+  </div>
+  <div class="text-content">
+    <h2>My Role</h2>
+    <p>As the <b>backend developer</b> and <b>tester</b>, I was responsible for developing and testing the server-side components of the system using Spring Boot. My main contribution was implementing the monthly report feature, which stores and organizes historical septic tank data in MongoDB, allowing users to review usage trends over time. I also ensured the reliability and performance of backend APIs through systematic testing and debugging.</p>
+  </div>
+</div>
+
+
+  <!-- Video -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Video Demonstration</h2>
+      <p>Watch our comprehensive video demonstration to see TankTrack in action, showcasing the hardware setup, mobile application interface, and real-time monitoring capabilities.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/g2aD-lDWTlk" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Links Section -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Useful Links</h2>
+      <div class="link-boxes">
+        <div class="link-box">
+          🌐 <a href="https://tank-track-official.vercel.app/" target="_blank">Visit Website</a>
+        </div>
+        <div class="link-box">
+          🔗 <a href="https://l.instagram.com/?u=https%3A%2F%2Flinktr.ee%2FTankTrack%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAacrninyJ2JeC8ftwc4gUXzUHQtFzZ3iMWTfoJgsnpeZM1HmA4BBpfdTo9QEnA_aem_a6Co7E-1kCBysxVwEJR_qw&e=AT1Rkp9tq_o-ARAQ_dl9fXy6_vZuqyNxmAnlpsHiSCXMgQov81D3BGbNrjwNhshJXywe0ygytyiHW8RdkimXy_AEaJx4_oebNOOJxieRTjDfv9jO0WbZva0" target="_blank">Linktree Profile</a>
+        </div>
+        <div class="link-box">
+          ▶️ <a href="https://youtu.be/NNuh9CnLeKM?si=xT_SLEwsRTruyO8N" target="_blank">Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+
+<script>
+  const sections = document.querySelectorAll('.section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  const cursor = document.querySelector(".custom-cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.top = e.clientY + "px";
+  cursor.style.left = e.clientX + "px";
+});
+</script>
+
+</body>
+</html>
