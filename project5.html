@@ -653,6 +653,24 @@
 
     </main>
   </div>
+  <button id="scrollToTopBtn" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background-color: #2f3330;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 999;
+  display: none;
+">
+  ↑ Top
+</button>
+
 
   <!-- Custom Cursor -->
   <div class="custom-cursor"></div>
@@ -694,6 +712,17 @@
         }
       });
     });
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+window.addEventListener('scroll', () => {
+  // Show button after scrolling down 400px
+  scrollToTopBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
   </script>
 </body>
 </html>
