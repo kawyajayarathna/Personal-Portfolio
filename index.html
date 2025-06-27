@@ -637,6 +637,30 @@ body, html {
     transform: scaleX(0.2); /* smaller width on small screens */
   }
 }
+    /* Common fade-in slide animation */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.section-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skills icons come from right */
+.skill-item {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease;
+}
+
+.skill-item.reveal {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 
 
@@ -709,7 +733,7 @@ simulation conversations, and positive feedback.</div>
   </div>
 </div>
 
-<section id="skills" class="skills-section section-container">
+<section id="skills" class="skills-section section-container section-hidden">
   <h3>Skills</h3>
   <hr>
   <div class="skills-grid">
@@ -780,7 +804,7 @@ simulation conversations, and positive feedback.</div>
   </div>
 </section>
 
-<section class="education-section section-container">
+<section class="education-section section-container section-hidden">
   <h3>Education</h3>
   <hr>
   <div class="education-container">
@@ -807,7 +831,7 @@ simulation conversations, and positive feedback.</div>
 
 
   
-  <section id="about" class="about-section section-container">
+  <section id="about" class="about-section section-container section-hidden">
   <h3>About</h3>
   <hr>
 
@@ -961,6 +985,34 @@ window.addEventListener('scroll', () => {
 scrollToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+    // Reveal sections
+const sections = document.querySelectorAll('.section-hidden');
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('section-show');
+      observer.unobserve(entry.target); // Only animate once
+    }
+  });
+}, { threshold: 0.1 });
+
+sections.forEach(section => observer.observe(section));
+
+// Reveal each skill icon from right
+const skillItems = document.querySelectorAll('.skill-item');
+const skillObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('reveal');
+      }, index * 100); // Staggered effect
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+skillItems.forEach(item => skillObserver.observe(item));
+
 
 </script>
 
